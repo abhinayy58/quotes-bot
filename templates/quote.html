@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+
+<style>
+/* 🔥 IMPORTANT: exact canvas size */
+@font-face {
+  font-family: 'Poppins';
+  src: url('./Poppins-Regular.ttf');
+}
+
+body {
+  margin: 0;
+  width: 360px;
+  height: 360px;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+.post {
+  width: 360px;
+  height: 360px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #fff;
+ position: relative;
+  background-image: url('{{IMAGE_URL}}');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-pic {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.name { font-size: 13px; font-weight: 600; }
+.username { font-size: 11px; opacity: .8 }
+
+/* Quote */
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.quote {
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.author {
+  margin-top: 8px;
+  font-size: 12px;
+  opacity: .9;
+}
+
+/* Footer */
+.footer {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  right: 18px;
+  text-align: center;
+  font-size: 11px;
+}
+
+</style>
+</head>
+
+<body>
+<div class="post">
+
+ <div class="header glass">
+    <img src="https://i.ibb.co/mVpwYsMJ/Full-Logo.jpg" class="profile-pic" />
+    <div style="margin-left:8px">
+      <div class="name">Nature Wisdom</div>
+      <div class="username">@nature.wisodm.daily</div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="glass">
+      <div class="quote">“{{QUOTE}}”</div>
+      <div class="author">— {{AUTHOR}}</div>
+    </div>
+  </div>
+
+  <div class="footer glass">🌿 Stay grounded. Stay growing.</div>
+
+</div>
+</body>
+</html>
