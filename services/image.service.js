@@ -28,12 +28,26 @@ export const generateImage = async (quote, author) => {
 
   await page.setContent(html, { waitUntil: "networkidle0" });
 
-  await page.waitForFunction(() => {
-    const bg = getComputedStyle(document.querySelector(".post")).backgroundImage;
-    return bg && bg !== "none";
-  });
+await page.evaluate(() => {
+  return new Promise((resolve) => {
+    const div = document.querySelector(".post");
+    const bg = div.style.backgroundImage;
+    const url = bg.slice(5, -2);
 
-  const post = await page.$(".post");
+    const img = new Image();
+    img.src = url;
+    img.onload = resolve;
+    img.onerror = resolve;
+  });
+});
+
+
+const post = await page.$(".post");
+
+if (!post) {
+  throw new Error(".post element not found");
+}
+
 
   const filePath = `./output/images/${Date.now()}.png`;
 
