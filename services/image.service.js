@@ -8,7 +8,8 @@ export const generateImage = async (quote, author) => {
   let html = fs.readFileSync("./templates/quote.html", "utf-8")
     .replace(/{{QUOTE}}/g, quote)
     .replace(/{{AUTHOR}}/g, author)
-    .replace(/{{IMAGE_URL}}/g, imageUrl);
+    .replace(/{{IMAGE_URL}}/g, imageUrl)
+    .replace(/{{EMOJI}}/g, "🌿");
 
   fs.mkdirSync("./output/images", { recursive: true });
 
